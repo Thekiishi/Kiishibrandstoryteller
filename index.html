@@ -225,6 +225,53 @@
   .card-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
   .alt-pay-msg{display:none;background:var(--deep);border:1px solid var(--border);padding:16px;margin-bottom:14px;font-size:13px;color:var(--muted);line-height:1.75;text-align:center;}
 
+  /* PORTFOLIO / BEFORE-AFTER */
+  .portfolio{position:relative;z-index:2;padding:100px 60px;border-bottom:1px solid var(--border);}
+  .portfolio-inner{margin-bottom:60px;}
+  .ba-grid{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);}
+  .ba-card{background:var(--panel);padding:48px 44px;}
+  .ba-property-label{font-family:'Orbitron',monospace;font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(59,130,246,0.5);margin-bottom:28px;}
+  .ba-columns{display:grid;grid-template-columns:1fr 40px 1fr;gap:0;align-items:stretch;}
+  .ba-col{display:flex;flex-direction:column;gap:16px;}
+  .ba-divider{display:flex;align-items:center;justify-content:center;position:relative;}
+  .ba-divider::before{content:'';position:absolute;top:0;bottom:0;left:50%;width:1px;background:var(--border);}
+  .ba-divider::after{content:'VS';font-family:'Orbitron',monospace;font-size:8px;font-weight:700;letter-spacing:0.15em;color:var(--muted);background:var(--panel);padding:6px 0;position:relative;z-index:1;}
+  .ba-badge{display:inline-block;font-family:'Orbitron',monospace;font-size:9px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;padding:5px 12px;clip-path:polygon(5px 0%,100% 0%,calc(100% - 5px) 100%,0% 100%);}
+  .ba-badge.before{background:rgba(107,114,128,0.15);color:var(--muted);}
+  .ba-badge.after{background:rgba(59,130,246,0.15);color:var(--blue-bright);}
+  .ba-text p{font-size:14px;line-height:1.85;color:#9ca3af;}
+  .ba-col:last-child .ba-text p{color:#e5e7eb;}
+
+  /* CALL EXPECT */
+  .call-expect{margin-top:52px;border:1px solid var(--border);background:var(--panel);padding:40px;max-width:780px;margin-left:auto;margin-right:auto;}
+  .call-expect-label{font-family:'Orbitron',monospace;font-size:9px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--blue-bright);margin-bottom:28px;}
+  .call-expect-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+  .call-step-num{font-family:'Orbitron',monospace;font-size:28px;font-weight:900;color:rgba(59,130,246,0.15);line-height:1;margin-bottom:10px;}
+  .call-step-text{font-size:13px;line-height:1.75;color:var(--muted);}
+
+  /* EMAIL STRIP */
+  .email-strip{position:relative;z-index:2;border-bottom:1px solid var(--border);background:var(--deep);}
+  .email-strip-inner{padding:80px 60px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+  .strip-title{font-family:'Orbitron',monospace;font-size:clamp(20px,2.5vw,30px);font-weight:700;line-height:1.15;margin-top:16px;}
+  .strip-sub{font-size:14px;line-height:1.75;color:var(--muted);margin-top:12px;}
+  .strip-inputs{display:flex;flex-direction:column;gap:12px;}
+  .strip-inputs input{font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:500;background:var(--panel);border:1px solid var(--border);color:var(--white);padding:13px 16px;outline:none;transition:border-color 0.2s;width:100%;cursor:crosshair;}
+  .strip-inputs input:focus{border-color:var(--blue-bright);}
+  .strip-inputs input::placeholder{color:var(--muted);}
+  .strip-inputs .btn-primary{width:100%;text-align:center;padding:14px;}
+
+  /* BLOG */
+  .blog-section{position:relative;z-index:2;padding:100px 60px;border-bottom:1px solid var(--border);background:var(--black);}
+  .blog-inner{}
+  .blog-header{margin-bottom:56px;}
+  .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
+  .blog-card{background:var(--panel);padding:40px 32px;position:relative;overflow:hidden;transition:background 0.3s;}
+  .blog-card:hover{background:#0f0f1e;}
+  .blog-tag{font-family:'Orbitron',monospace;font-size:9px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue-bright);margin-bottom:16px;}
+  .blog-title{font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:700;line-height:1.3;color:var(--white);margin-bottom:12px;}
+  .blog-desc{font-size:13px;line-height:1.75;color:var(--muted);margin-bottom:24px;}
+  .blog-coming{font-family:'Orbitron',monospace;font-size:9px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(59,130,246,0.4);border:1px solid rgba(59,130,246,0.2);display:inline-block;padding:5px 12px;clip-path:polygon(5px 0%,100% 0%,calc(100% - 5px) 100%,0% 100%);}
+
   /* ANIMATIONS */
   @keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
   @keyframes ticker{from{transform:translateX(0);}to{transform:translateX(-50%);}}
@@ -263,6 +310,15 @@
     .footer-bottom{padding:18px 24px;flex-direction:column;gap:6px;text-align:center;}
     .modal-body{padding:28px 24px 28px;}
     .card-row{grid-template-columns:1fr;}
+    .ba-columns{grid-template-columns:1fr;gap:24px;}
+    .ba-divider{display:none;}
+    .portfolio{padding:64px 24px;}
+    .ba-card{padding:32px 24px;}
+    .call-expect{padding:28px 20px;}
+    .call-expect-steps{grid-template-columns:1fr;}
+    .email-strip-inner{grid-template-columns:1fr;gap:32px;padding:64px 24px;}
+    .blog-section{padding:64px 24px;}
+    .blog-grid{grid-template-columns:1fr;}
   }
   @media(max-width:600px){
     .process-grid{grid-template-columns:1fr;}
@@ -402,6 +458,7 @@
       <div class="product-desc">A 15-page guide that shows you how to turn any listing into a story a buyer can't stop reading. Your starting point.</div>
       <ul class="product-features"><li>5 core storytelling frameworks</li><li>Before/after copy examples</li><li>Emotion mapping worksheet</li><li>Instant PDF download</li></ul>
       <button class="btn-primary" style="width:100%;padding:15px;cursor:crosshair;" onclick="openFreeModal()">Download Free Guide</button>
+      <p style="font-size:11px;color:var(--muted);text-align:center;margin-top:12px;letter-spacing:0.05em;">Downloaded by 300+ agents and developers</p>
     </div>
     <div class="product-card observe">
       <div class="product-badge badge-paid">DIY Playbook</div>
@@ -410,6 +467,7 @@
       <div class="product-desc">80+ pages. Everything you need to write, position, and market your own properties using storytelling that actually moves people.</div>
       <ul class="product-features"><li>9 complete chapters</li><li>Paid ads chapter included</li><li>Copywriting frameworks for every format</li><li>Real property copy examples</li><li>Implementation checklist</li></ul>
       <button class="btn-primary" style="width:100%;padding:15px;cursor:crosshair;" onclick="openPayModal()">Get the Playbook &#8212; $47</button>
+      <p style="font-size:11px;color:var(--muted);text-align:center;margin-top:12px;letter-spacing:0.05em;">Read across 12+ countries</p>
     </div>
     <div class="product-card featured observe">
       <div class="product-badge badge-premium">Done For You</div>
@@ -420,6 +478,79 @@
       <p class="product-note">Ad spend is paid directly to the platform and is not included in this fee.</p>
       <a href="https://calendly.com/kiishiidowu/storytelling-marketing" target="_blank" class="btn-gold" style="margin-top:16px;">Book Your Strategy Call</a>
     </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="portfolio" id="portfolio">
+  <div class="portfolio-inner observe">
+    <div class="eyebrow">The Work</div>
+    <h2 class="section-title">See the <span class="blue">Difference</span><br/>Copy Makes.</h2>
+    <p style="color:var(--muted);font-size:16px;line-height:1.75;max-width:560px;margin-top:16px;">Most property copy describes. Good property copy transports. Here's what that looks like in practice.</p>
+  </div>
+
+  <div class="ba-grid">
+
+    <!-- CARD 1 -->
+    <div class="ba-card observe">
+      <div class="ba-property-label">// Luxury Apartment, City Centre</div>
+      <div class="ba-columns">
+        <div class="ba-col">
+          <div class="ba-badge before">Before</div>
+          <div class="ba-text">
+            <p>2-bedroom apartment available in the city centre. Open-plan living space with floor-to-ceiling windows. Modern kitchen with integrated appliances. Master bedroom with en-suite. Underground parking included. Close to public transport and local amenities. Available for immediate occupation. EPC rating B.</p>
+          </div>
+        </div>
+        <div class="ba-divider"></div>
+        <div class="ba-col">
+          <div class="ba-badge after">After</div>
+          <div class="ba-text">
+            <p>On the fourteenth floor, the city becomes something you look at rather than something you're in. You're close enough to be part of everything, far enough up that none of it follows you through the door. The apartment is open where it should be and private where it matters. The kitchen is fitted for someone who actually uses one. The windows are not a feature, they're the reason. And when you leave in the morning, the whole city is already waiting for you at ground level, with parking ready when you come back up.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="ba-card observe">
+      <div class="ba-property-label">// Four-Bedroom Family Home, Suburbs</div>
+      <div class="ba-columns">
+        <div class="ba-col">
+          <div class="ba-badge before">Before</div>
+          <div class="ba-text">
+            <p>Spacious four-bedroom detached house in a quiet residential area. Large garden to the rear. Double garage. Newly fitted kitchen and bathrooms. Good school catchment area. Off-street parking for three vehicles. Close to parks and green spaces. Chain-free sale. Viewings by appointment.</p>
+          </div>
+        </div>
+        <div class="ba-divider"></div>
+        <div class="ba-col">
+          <div class="ba-badge after">After</div>
+          <div class="ba-text">
+            <p>You haven't stepped inside yet and you're already measuring the driveway with your eyes. Four bedrooms means no one has to share. The garden is the kind that fills up naturally, with a trampoline, a table, a pile of things that belong outside. The school situation is why half the road moved here. The other half came because someone told them how quiet the evenings are, and found out they were right.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="ba-card observe">
+      <div class="ba-property-label">// Commercial Unit, Mixed-Use Development</div>
+      <div class="ba-columns">
+        <div class="ba-col">
+          <div class="ba-badge before">Before</div>
+          <div class="ba-text">
+            <p>Ground-floor commercial unit available within a new mixed-use development. 1,200 sq ft of flexible retail or office space. Full glass frontage. High footfall location. Suitable for F&amp;B, retail, or professional services. Lease terms negotiable. Available Q1. Enquiries to the agent.</p>
+          </div>
+        </div>
+        <div class="ba-divider"></div>
+        <div class="ba-col">
+          <div class="ba-badge after">After</div>
+          <div class="ba-text">
+            <p>This unit sits exactly where foot traffic lands before it decides where to go. Ground floor, full glass frontage, 1,200 square feet of space that puts your brand in direct sight of everyone moving through the development. The people who will become regulars here haven't found their habits yet because the neighbourhood is still forming. That's the point. The businesses that move in now get to be part of what this place becomes, not a late addition to something already established. Flexible lease terms. Available Q1.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -483,10 +614,79 @@
       <a href="https://calendly.com/kiishiidowu/storytelling-marketing" target="_blank" class="btn-primary">Book Your Strategy Call</a>
       <a href="#products" class="btn-ghost">Explore Products First</a>
     </div>
+    <div class="call-expect observe">
+      <div class="call-expect-label">// What happens on the call</div>
+      <div class="call-expect-steps">
+        <div class="call-step">
+          <div class="call-step-num">01</div>
+          <div class="call-step-text">We look at your current marketing honestly. What's working, what's being ignored, and where the story is missing.</div>
+        </div>
+        <div class="call-step">
+          <div class="call-step-num">02</div>
+          <div class="call-step-text">I show you exactly what needs to change and why. You'll leave the call with a clear picture of what the right copy would do for your listings.</div>
+        </div>
+        <div class="call-step">
+          <div class="call-step-num">03</div>
+          <div class="call-step-text">If it makes sense to work together, we talk about how. If it doesn't, you still walk away with something useful. No pressure in either direction.</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- EMAIL STRIP -->
+<section class="email-strip">
+  <div class="email-strip-inner observe">
+    <div>
+      <div class="eyebrow">Stay Sharp</div>
+      <h3 class="strip-title">Weekly copy thinking for<br/>real estate professionals.</h3>
+      <p class="strip-sub">Listings, ads, funnels, and the storytelling logic behind all of it. Straight to your inbox.</p>
+    </div>
+    <div class="strip-form" id="stripFormWrap">
+      <div class="strip-inputs">
+        <input type="text" id="stripName" placeholder="First name" />
+        <input type="email" id="stripEmail" placeholder="Email address" />
+        <button class="btn-primary" style="white-space:nowrap;padding:14px 28px;" onclick="submitStrip()">Subscribe</button>
+      </div>
+      <p id="stripSuccess" style="display:none;font-family:'Orbitron',monospace;font-size:10px;letter-spacing:0.2em;color:#22c55e;margin-top:12px;">// You're in. First issue on its way.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG TEASER -->
+<section class="blog-section">
+  <div class="blog-inner observe">
+    <div class="blog-header">
+      <div>
+        <div class="eyebrow">From the Desk of Kiishi</div>
+        <h2 class="section-title">Thinking Out <span class="blue">Loud.</span></h2>
+        <p style="color:var(--muted);font-size:15px;line-height:1.75;max-width:480px;margin-top:14px;">Copy breakdowns, marketing strategy, and honest observations about how real estate gets sold. Coming soon.</p>
+      </div>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card observe">
+        <div class="blog-tag">Listing Copy</div>
+        <div class="blog-title">Why "Spacious and Modern" Is Costing You Viewings</div>
+        <div class="blog-desc">The two most common words in property listings are also the two least likely to make anyone pick up the phone. Here's what to write instead.</div>
+        <div class="blog-coming">Coming Soon</div>
+      </div>
+      <div class="blog-card observe">
+        <div class="blog-tag">Meta Ads</div>
+        <div class="blog-title">The Ad That Outperformed Every Other Version Had Just 47 Words in It</div>
+        <div class="blog-desc">Length isn't the problem with most property ads. The problem is that they start with the property instead of the person reading them.</div>
+        <div class="blog-coming">Coming Soon</div>
+      </div>
+      <div class="blog-card observe">
+        <div class="blog-tag">Strategy</div>
+        <div class="blog-title">Your Agency Has a Story. You're Just Not Telling It.</div>
+        <div class="blog-desc">Most agencies communicate what they do. The ones that grow fastest communicate why anyone should care. There's a difference and it's learnable.</div>
+        <div class="blog-coming">Coming Soon</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <footer>
   <div>
     <a href="#" class="footer-logo">Kiishi<em>brandstoryteller</em></a>
@@ -593,6 +793,14 @@
   function formatExp(i){let v=i.value.replace(/\D/g,'');if(v.length>=2)v=v.substring(0,2)+' / '+v.substring(2,4);i.value=v;}
   function submitPayment(){const name=document.getElementById('payName').value.trim();const email=document.getElementById('payEmail').value.trim();if(!name||!email||!email.includes('@')){document.getElementById('payEmail').focus();return;}if(selPay==='card'){const cn=document.getElementById('cardNum').value.replace(/\s/g,'');if(cn.length<16){document.getElementById('cardNum').focus();return;}}document.getElementById('payForm').classList.add('hidden');document.getElementById('paySuccess').classList.add('active');}
   document.getElementById('payModal').addEventListener('click',function(e){if(e.target===this)closePayModal();});
+  function submitStrip(){
+    const name=document.getElementById('stripName').value.trim();
+    const email=document.getElementById('stripEmail').value.trim();
+    if(!name||!email||!email.includes('@')){document.getElementById('stripEmail').style.borderColor='var(--blue-bright)';document.getElementById('stripEmail').focus();return;}
+    document.getElementById('stripName').value='';
+    document.getElementById('stripEmail').value='';
+    document.getElementById('stripSuccess').style.display='block';
+  }
 </script>
 </body>
 </html>
