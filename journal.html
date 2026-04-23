@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Journal | Kiishibrandstoryteller</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black:#050508; --deep:#0a0a12; --panel:#0e0e1a; --border:#1a1a2e;
+    --blue:#2563eb; --blue-bright:#3b82f6; --blue-light:#60a5fa;
+    --gold:#c9a84c; --gold-light:#e8c96d;
+    --white:#f0f0f8; --muted:#6b7280; --scan:rgba(37,99,235,0.025);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;overflow-x:hidden;cursor:crosshair;}
+  body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,var(--scan) 2px,var(--scan) 4px);pointer-events:none;z-index:9999;}
+  body::after{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(37,99,235,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:1;}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;justify-content:space-between;align-items:center;padding:18px 60px;border-bottom:1px solid var(--border);background:rgba(5,5,8,0.94);backdrop-filter:blur(24px);}
+  .logo{font-family:'Orbitron',monospace;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--white);text-decoration:none;white-space:nowrap;}
+  .logo em{color:var(--blue-bright);font-style:normal;}
+  .nav-links{display:flex;gap:30px;list-style:none;}
+  .nav-links a{font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s;}
+  .nav-links a:hover{color:var(--white);}
+  .nav-cta{font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--black);background:var(--blue-bright);padding:10px 22px;text-decoration:none;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);transition:background 0.2s;white-space:nowrap;}
+  .nav-cta:hover{background:var(--blue-light);}
+
+  /* EYEBROW */
+  .eyebrow{font-family:'Orbitron',monospace;font-size:9px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--blue-bright);margin-bottom:14px;}
+  .section-title{font-family:'Orbitron',monospace;font-size:clamp(28px,4vw,52px);font-weight:900;line-height:1.1;}
+  .blue{color:var(--blue-bright);}
+
+  /* PAGE HERO */
+  .page-hero{position:relative;z-index:2;padding:160px 60px 80px;border-bottom:1px solid var(--border);}
+  .page-hero h1{font-family:'Orbitron',monospace;font-size:clamp(36px,6vw,80px);font-weight:900;line-height:1.05;max-width:700px;}
+  .page-hero p{font-size:17px;line-height:1.8;color:var(--muted);max-width:520px;margin-top:22px;}
+
+  /* BLOG SECTION */
+  .blog-section{position:relative;z-index:2;padding:100px 60px;border-bottom:1px solid var(--border);}
+  .blog-inner{max-width:1200px;margin:0 auto;}
+  .blog-header{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;margin-bottom:60px;}
+  .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .blog-card{background:var(--panel);border:1px solid var(--border);padding:32px 28px;display:flex;flex-direction:column;gap:14px;transition:border-color 0.25s;}
+  .blog-card:hover{border-color:var(--blue-bright);}
+  .blog-tag{font-family:'Orbitron',monospace;font-size:8px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue-bright);}
+  .blog-title{font-family:'Rajdhani',sans-serif;font-size:19px;font-weight:700;line-height:1.3;color:var(--white);}
+  .blog-desc{font-size:13px;line-height:1.8;color:var(--muted);flex:1;}
+  .blog-coming{font-family:'Orbitron',monospace;font-size:8px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--border);padding-top:14px;margin-top:auto;}
+
+  /* EMAIL STRIP */
+  .email-strip{position:relative;z-index:2;padding:100px 60px;border-bottom:1px solid var(--border);background:var(--deep);}
+  .email-strip-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+  .strip-title{font-family:'Orbitron',monospace;font-size:clamp(20px,2.5vw,30px);font-weight:700;line-height:1.15;margin-top:16px;}
+  .strip-sub{font-size:14px;line-height:1.75;color:var(--muted);margin-top:12px;}
+  .strip-inputs{display:flex;flex-direction:column;gap:12px;}
+  .strip-inputs input{font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:500;letter-spacing:0.05em;background:var(--panel);border:1px solid var(--border);color:var(--white);padding:14px 18px;outline:none;transition:border-color 0.2s;cursor:crosshair;}
+  .strip-inputs input:focus{border-color:var(--blue-bright);}
+  .strip-inputs input::placeholder{color:var(--muted);}
+  .btn-primary{font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--black);background:var(--blue-bright);border:none;padding:15px 32px;cursor:crosshair;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);transition:background 0.2s;width:100%;}
+  .btn-primary:hover{background:var(--blue-light);}
+
+  /* FULL FOOTER */
+  footer{position:relative;z-index:2;border-top:1px solid var(--border);padding:60px;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;}
+  .footer-logo{font-family:'Orbitron',monospace;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--white);text-decoration:none;display:block;margin-bottom:14px;}
+  .footer-logo em{color:var(--blue-bright);font-style:normal;}
+  .footer-tagline{font-size:13px;color:var(--muted);line-height:1.7;}
+  .footer-heading{font-family:'Orbitron',monospace;font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue-bright);margin-bottom:16px;}
+  .footer-links{list-style:none;display:flex;flex-direction:column;gap:10px;}
+  .footer-links a{font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:500;color:var(--muted);text-decoration:none;transition:color 0.2s;}
+  .footer-links a:hover{color:var(--white);}
+  .footer-bottom{border-top:1px solid var(--border);padding:22px 60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+  .footer-copy{font-family:'Rajdhani',sans-serif;font-size:12px;letter-spacing:0.06em;color:var(--muted);}
+  .footer-handle{font-family:'Orbitron',monospace;font-size:10px;font-weight:600;letter-spacing:0.15em;color:var(--blue-bright);}
+
+  /* OBSERVE ANIMATION */
+  .observe{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease;}
+  .observe.visible{opacity:1;transform:none;}
+
+  /* RESPONSIVE */
+  @media(max-width:900px){
+    nav{padding:16px 24px;}
+    .page-hero{padding:120px 24px 60px;}
+    .blog-section{padding:60px 24px;}
+    .blog-grid{grid-template-columns:1fr;}
+    .email-strip{padding:60px 24px;}
+    .email-strip-inner{grid-template-columns:1fr;gap:36px;}
+    footer{padding:40px 24px;grid-template-columns:1fr;}
+    .footer-bottom{padding:18px 24px;}
+    .nav-links{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Kiishi<em>brandstoryteller</em></a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#products">Products</a></li>
+    <li><a href="journal.html" style="color:var(--white)">The Journal</a></li>
+  </ul>
+  <a href="https://calendly.com/kiishiidowu/storytelling-marketing" class="nav-cta" target="_blank">Book a Call</a>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="eyebrow">From the Desk of Kiishi</div>
+  <h1>The <span class="blue">Journal.</span></h1>
+  <p>Copy breakdowns, marketing strategy, and honest observations about how real estate gets sold. Updated when there's something worth saying.</p>
+</section>
+
+<!-- BLOG SECTION -->
+<section class="blog-section">
+  <div class="blog-inner">
+    <div class="blog-grid">
+      <div class="blog-card observe">
+        <div class="blog-tag">Listing Copy</div>
+        <div class="blog-title">Why "Spacious and Modern" Is Costing You Viewings</div>
+        <div class="blog-desc">The two most common words in property listings are also the two least likely to make anyone pick up the phone. Here's what to write instead.</div>
+        <div class="blog-coming">Coming Soon</div>
+      </div>
+      <div class="blog-card observe">
+        <div class="blog-tag">Meta Ads</div>
+        <div class="blog-title">The Ad That Outperformed Every Other Version Had Just 47 Words in It</div>
+        <div class="blog-desc">Length isn't the problem with most property ads. The problem is that they start with the property instead of the person reading them.</div>
+        <div class="blog-coming">Coming Soon</div>
+      </div>
+      <div class="blog-card observe">
+        <div class="blog-tag">Strategy</div>
+        <div class="blog-title">Your Agency Has a Story. You're Just Not Telling It.</div>
+        <div class="blog-desc">Most agencies communicate what they do. The ones that grow fastest communicate why anyone should care. There's a difference and it's learnable.</div>
+        <div class="blog-coming">Coming Soon</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMAIL STRIP -->
+<section class="email-strip">
+  <div class="email-strip-inner observe">
+    <div>
+      <div class="eyebrow">Stay Sharp</div>
+      <h3 class="strip-title">Weekly copy and strategy for real estate professionals who want to stay ahead of the listing.</h3>
+      <p class="strip-sub">Listings, ads, funnels and the storytelling logic behind all of it.</p>
+    </div>
+    <div id="stripFormWrap">
+      <div class="strip-inputs">
+        <input type="text" id="stripName" placeholder="First name" />
+        <input type="email" id="stripEmail" placeholder="Email address" />
+        <button class="btn-primary" onclick="submitStrip()">Subscribe</button>
+      </div>
+      <p id="stripSuccess" style="display:none;font-family:'Orbitron',monospace;font-size:10px;letter-spacing:0.2em;color:#22c55e;margin-top:12px;">// You're in. First issue on its way.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FULL FOOTER -->
+<footer>
+  <div>
+    <a href="index.html" class="footer-logo">Kiishi<em>brandstoryteller</em></a>
+    <p class="footer-tagline">Conversion copywriter and storytelling marketer for real estate agencies and developers that want copy that moves people before it sells the property.</p>
+  </div>
+  <div>
+    <div class="footer-heading">Services</div>
+    <ul class="footer-links">
+      <li><a href="index.html#services">Conversion Copywriting</a></li>
+      <li><a href="index.html#services">Storytelling Strategy</a></li>
+      <li><a href="index.html#ads">Meta Ads Management</a></li>
+      <li><a href="index.html#services">Listing Copy</a></li>
+      <li><a href="index.html#services">Email Funnels</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="footer-heading">Products</div>
+    <ul class="footer-links">
+      <li><a href="index.html#products">Free: 5-Step Formula Guide</a></li>
+      <li><a href="index.html#products">The Playbook &mdash; $47</a></li>
+      <li><a href="https://calendly.com/kiishiidowu/storytelling-marketing" target="_blank">Done For You &mdash; $1,500</a></li>
+      <li><a href="https://calendly.com/kiishiidowu/storytelling-marketing" target="_blank">Book a Strategy Call</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span class="footer-copy">&#169; 2026 Kiishibrandstoryteller. All rights reserved.</span>
+  <span class="footer-handle">@kiishibrandstoryteller</span>
+</div>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); } });
+  }, {threshold:0.1});
+  document.querySelectorAll('.observe').forEach(el => observer.observe(el));
+
+  // Newsletter submit
+  function submitStrip(){
+    const name = document.getElementById('stripName').value.trim();
+    const email = document.getElementById('stripEmail').value.trim();
+    if(!name || !email){ return; }
+    document.getElementById('stripSuccess').style.display = 'block';
+    document.querySelector('.strip-inputs').style.display = 'none';
+  }
+</script>
+</body>
+</html>
