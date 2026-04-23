@@ -357,6 +357,9 @@
     .feedback-section{padding:64px 24px;}
     .screenshots-grid{grid-template-columns:1fr;}
     .results-strip{padding:64px 24px;}
+    .footer-slim{padding:36px 24px 0;}
+    .footer-slim-nav{gap:16px;}
+    .footer-bottom{padding:18px 0;flex-direction:column;gap:6px;text-align:center;}
 
   }
   @media(max-width:600px){
@@ -389,6 +392,7 @@
   <a href="#products" onclick="toggleMenu()">Products</a>
   <a href="#ads" onclick="toggleMenu()">Ads</a>
   <a href="#contact" onclick="toggleMenu()">Contact</a>
+  <a href="journal.html">The Journal</a>
   <a href="https://calendly.com/kiishiidowu/storytelling-marketing" target="_blank" class="cta-m">Book a Call</a>
 </div>
 
@@ -473,7 +477,7 @@
 
 <!-- PROCESS -->
 <section class="process" id="process">
-  <div class="observe"><div class="eyebrow">Process</div><h2 class="section-title">How We <span class="blue">Operate.</span></h2></div>
+  <div class="observe"><div class="eyebrow">Process</div><h2 class="section-title">How This <span class="blue">Works.</span></h2></div>
   <div class="process-grid">
     <div class="process-step observe"><div class="step-number">01</div><div class="step-label">Strategy Call</div><div class="step-desc">I spend 45 minutes understanding your property, your audience, and what's not working. You leave with clarity, whatever you decide to do next.</div></div>
     <div class="process-step observe"><div class="step-number">02</div><div class="step-label">Story Discovery</div><div class="step-desc">I dig into your brand, your listings, and your buyers. I find the narrative underneath the numbers. This is where the good stuff lives.</div></div>
@@ -604,7 +608,7 @@
     <div class="result-card observe">
       <div class="result-stat">110<em>k</em></div>
       <div class="result-label">Views, Single Post</div>
-      <div class="result-context">One piece of content, written and structured around a story hook, reached 50k accounts and drove 536 new followers in one reporting window.</div>
+      <div class="result-context">One piece of content, written and structured around a story hook, reached 110k views and 50k+ accounts in a single reporting window.</div>
       <div class="result-client">// Tech Creator — UK</div>
     </div>
     <div class="result-card observe">
@@ -723,7 +727,6 @@
     <p>Book a strategy call and within thirty minutes you'll know exactly where your property marketing is falling short and what it takes to fix it.</p>
     <div class="cta-actions">
       <a href="https://calendly.com/kiishiidowu/storytelling-marketing" target="_blank" class="btn-primary">Book Your Strategy Call</a>
-      <a href="#products" class="btn-ghost">Explore Products First</a>
     </div>
     <div class="call-expect observe">
       <div class="call-expect-label">// What happens on the call</div>
@@ -745,71 +748,16 @@
   </div>
 </section>
 
-<!-- EMAIL STRIP -->
-<section class="email-strip">
-  <div class="email-strip-inner observe">
-    <div>
-      <div class="eyebrow">Stay Sharp</div>
-      <h3 class="strip-title">Weekly copy and strategy for real estate professionals who want to stay ahead of the listing.</h3>
-      <p class="strip-sub">Listings, ads, funnels and the storytelling logic behind all of it.</p>
-    </div>
-    <div class="strip-form" id="stripFormWrap">
-      <div class="strip-inputs">
-        <input type="text" id="stripName" placeholder="First name" />
-        <input type="email" id="stripEmail" placeholder="Email address" />
-        <button class="btn-primary" style="white-space:nowrap;padding:14px 28px;" onclick="submitStrip()">Subscribe</button>
-      </div>
-      <p id="stripSuccess" style="display:none;font-family:'Orbitron',monospace;font-size:10px;letter-spacing:0.2em;color:#22c55e;margin-top:12px;">// You're in. First issue on its way.</p>
-    </div>
-  </div>
-</section>
+<!-- JOURNAL LINK -->
+<div style="position:relative;z-index:2;text-align:center;padding:48px 24px;border-top:1px solid var(--border);">
+  <p style="font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);">Articles, copy tips and strategy, updated regularly.</p>
+  <a href="journal.html" style="font-family:'Orbitron',monospace;font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--blue-bright);text-decoration:none;display:inline-block;margin-top:10px;border-bottom:1px solid var(--blue-bright);padding-bottom:3px;">Visit The Journal &rarr;</a>
+</div>
 
-<!-- BLOG TEASER -->
-<section class="blog-section">
-  <div class="blog-inner observe">
-    <div class="blog-header">
-      <div>
-        <div class="eyebrow">From the Desk of Kiishi</div>
-        <h2 class="section-title">Thinking Out <span class="blue">Loud.</span></h2>
-        <p style="color:var(--muted);font-size:15px;line-height:1.75;max-width:480px;margin-top:14px;">Copy breakdowns, marketing strategy, and honest observations about how real estate gets sold. Coming soon.</p>
-      </div>
-    </div>
-    <div class="blog-grid">
-      <div class="blog-card observe">
-        <div class="blog-tag">Listing Copy</div>
-        <div class="blog-title">Why "Spacious and Modern" Is Costing You Viewings</div>
-        <div class="blog-desc">The two most common words in property listings are also the two least likely to make anyone pick up the phone. Here's what to write instead.</div>
-        <div class="blog-coming">Coming Soon</div>
-      </div>
-      <div class="blog-card observe">
-        <div class="blog-tag">Meta Ads</div>
-        <div class="blog-title">The Ad That Outperformed Every Other Version Had Just 47 Words in It</div>
-        <div class="blog-desc">Length isn't the problem with most property ads. The problem is that they start with the property instead of the person reading them.</div>
-        <div class="blog-coming">Coming Soon</div>
-      </div>
-      <div class="blog-card observe">
-        <div class="blog-tag">Strategy</div>
-        <div class="blog-title">Your Agency Has a Story. You're Just Not Telling It.</div>
-        <div class="blog-desc">Most agencies communicate what they do. The ones that grow fastest communicate why anyone should care. There's a difference and it's learnable.</div>
-        <div class="blog-coming">Coming Soon</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<footer>
+<footer style="grid-template-columns:1fr;">
   <div>
     <a href="#" class="footer-logo">Kiishi<em>brandstoryteller</em></a>
     <p class="footer-tagline">Conversion copywriter and storytelling marketer for real estate agencies and developers that want copy that moves people before it sells the property.</p>
-  </div>
-  <div>
-    <div class="footer-heading">Services</div>
-    <ul class="footer-links"><li><a href="#">Conversion Copywriting</a></li><li><a href="#">Storytelling Strategy</a></li><li><a href="#">Meta Ads Management</a></li><li><a href="#">Listing Copy</a></li><li><a href="#">Email Funnels</a></li></ul>
-  </div>
-  <div>
-    <div class="footer-heading">Products</div>
-    <ul class="footer-links"><li><a href="#" onclick="openFreeModal();return false;">Free: 5-Step Formula Guide</a></li><li><a href="#" onclick="openPayModal();return false;">The Playbook &#8212; $47</a></li><li><a href="https://calendly.com/kiishiidowu/storytelling-marketing">Done For You &#8212; $1,500</a></li><li><a href="https://calendly.com/kiishiidowu/storytelling-marketing">Book a Strategy Call</a></li></ul>
   </div>
 </footer>
 <div class="footer-bottom">
